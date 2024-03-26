@@ -1,0 +1,62 @@
+<form action="/user/login" method="post">
+<h1>Welcome</h1>
+        {{messages.error}}
+    <input type="email" name="email" placeholder="Enter Your Email" />
+    <input type="password" name="password" placeholder="Enter Your Password" />
+
+    <button>Login</button>
+
+</form>
+
+<style>
+
+    body{
+        background: url('/static/img/gg.jpg');
+    }
+
+    form{
+        padding:10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width:440px;
+        height: 450px;
+        gap:20px;
+        margin:auto;
+        margin-top: 120px;
+        background: rgba(255, 255, 255, 0.28);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    form h1{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        position: relative;
+        top: -50px;
+        color: rgb(59, 17, 17);
+    }
+
+    form input{
+        height: 40px;
+        width: 80%;
+        border-radius: 10px;
+        padding-left: 10px;
+        outline: none;
+        border: 1px solid grey;
+        color: black;
+    }
+
+    form button{
+        height: 40px;
+        border-radius: 8px;
+        outline: none;
+        border: none;
+        width: 80%;
+        color: black;
+    }
+  
+</style>

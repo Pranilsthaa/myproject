@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {{!-- PRODUCT GRID CDNs --}}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/css/LineIcons.3.0.css" />
+    <link rel="stylesheet" href="/static/css/tiny-slider.css" />
+    <link rel="stylesheet" href="/static/css/glightbox.min.css" />
+    <link rel="stylesheet" href="/static/css/product-grid.css" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+</head>
+<body>
+    
+
+         <body>
+        <!--[if lte IE 9]>
+        <p class="browserupgrade">
+            You are using an <strong>outdated</strong> browser. Please
+            <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+            your experience and security.
+        </p>
+        <![endif]-->
+
+        <!-- Preloader -->
+      
+        <!-- /End Preloader -->
+
+        <!-- Start Header Area -->
+        <header class="header navbar-area">
+            <!-- Start Topbar -->
+            <div class="topbar">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="top-left">
+                                <ul class="menu-top-link">
+                                    <li>
+                                        <div class="select-position">
+                                            <select id="select4">
+                                                <option value="0" selected>E-CRAFTING NEPAL</option>
+                                                <option value="1">€ EURO</option>
+                                                <option value="2">$ CAD</option>
+                                                <option value="3">₹ INR</option>
+                                                <option value="4">¥ CNY</option>
+                                                <option value="5">৳ BDT</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="select-position">
+                                            <select id="select5">
+                                                <option value="0" selected>English</option>
+                                                <option value="1">Español</option>
+                                                <option value="2">Filipino</option>
+                                                <option value="3">Français</option>
+                                                <option value="4">العربية</option>
+                                                <option value="5">हिन्दी</option>
+                                                <option value="6">বাংলা</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="top-middle">
+                                <ul class="useful-links">
+                                    <li><a href="/user">Home</a></li>
+                                    <li><a href="/user/about">About Us</a></li>
+                                    <li><a href="/user/contact">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="top-end">
+                                <div class="user">
+                                    Hello {{info.user_name}}
+                                </div>
+                                <ul class="user-login">
+                                    {{#if (reverse userAuth)}}
+                                    <li>
+                                        <a href="/user/login">Sign In</a>
+                                    </li>
+                                    <li>
+                                        <a href="/user/register">Register</a>
+                                    </li>
+                                    {{/if}}
+                                    {{#if userAuth}}
+                                    <li>
+                                       <form action="/user/logout?_method=DELETE" method="post">
+                                            <button>Logout</button>
+                                       </form>
+                                    </li>
+                                    {{/if}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Topbar -->
+            <!-- Start Header Middle -->
+            
+            <!-- End Header Middle -->
+            <!-- Start Header Bottom -->
+            {{#if userAuth}}
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 col-md-6 col-12">
+                        <div class="nav-inner">
+                            <!-- Start Mega Category Menu -->
+                            <div class="mega-category-menu">
+                                <span class="cat-button"><i class="fa-solid fa-bars"></i>All Categories</span>
+                                <ul class="sub-category">    
+                                    {{#each data}}
+                                    <li><a href="/user/product/{{id}}">{{c_name}}</a></li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                            <!-- End Mega Category Menu -->
+                            <!-- Start Navbar -->
+                            <nav class="navbar navbar-expand-lg">
+                                <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="toggler-icon"></span>
+                                    <span class="toggler-icon"></span>
+                                    <span class="toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                    <ul id="nav" class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                                            <a href="/user" class="active" aria-label="Toggle navigation">Home</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="javascript:void(0)" data-bs-toggle="collapse"
+                                                data-bs-target="#submenu-1-2" aria-controls="navbarSupportedContent"
+                                                aria-expanded="false" aria-label="Toggle navigation">Pages <i class="fa-solid fa-caret-down"></i></a>
+                                            <ul class="sub-menu collapse" id="submenu-1-2">
+                                                <li class="nav-item"><a href="about-us.html">About Us</a></li>
+                                                <li class="nav-item"><a href="faq.html">Faq</a></li>
+                                                <li class="nav-item"><a href="login.html">Login</a></li>
+                                                <li class="nav-item"><a href="register.html">Register</a></li>
+                                                <li class="nav-item"><a href="mail-success.html">Mail Success</a></li>
+                                                <li class="nav-item"><a href="404.html">404 Error</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a  href="javascript:void(0)" data-bs-toggle="collapse"
+                                                data-bs-target="#submenu-1-3" aria-controls="navbarSupportedContent"
+                                                aria-expanded="false" aria-label="Toggle navigation">Shop <i class="fa-solid fa-caret-down"></i></a>
+                                            <ul class="sub-menu collapse" id="submenu-1-3">
+                                                <li class="nav-item"><a href="product-grids.html">Shop Grid</a></li>
+                                                <li class="nav-item"><a href="product-list.html">Shop List</a></li>
+                                                <li class="nav-item"><a href="product-details.html">shop Single</a></li>
+                                                <li class="nav-item"><a href="/user/cart">Cart</a></li>
+                                                <li class="nav-item"><a href="checkout.html">Checkout</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a  href="javascript:void(0)" data-bs-toggle="collapse"
+                                                data-bs-target="#submenu-1-4" aria-controls="navbarSupportedContent"
+                                                aria-expanded="false" aria-label="Toggle navigation">Blog <i class="fa-solid fa-caret-down"></i></a>
+                                            <ul class="sub-menu collapse" id="submenu-1-4">
+                                                <li class="nav-item"><a href="blog-grid-sidebar.html">Blog Grid Sidebar</a>
+                                                </li>
+                                                <li class="nav-item"><a href="blog-single.html">Blog Single</a></li>
+                                                <li class="nav-item"><a href="blog-single-sidebar.html">Blog Single
+                                                        Sibebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="contact.html" aria-label="Toggle navigation">Contact Us</a>
+                                        </li>
+                                    </ul>
+                                </div> <!-- navbar collapse -->
+                            </nav>
+                            <!-- End Navbar -->
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <!-- Start Nav Social -->
+                        <div class="nav-social">
+                            <h5 class="title">Follow Us:</h5>
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0)"><i class="fa-brands fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><i class="fa-brands fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><i class="fa-brands fa-instagram"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End Nav Social -->
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+            <!-- End Header Bottom -->
+        </header>
+        <!-- End Header Area -->
+
+        <!-- Start Hero Area -->
+       {{{body}}}
+    </body>
+</html>

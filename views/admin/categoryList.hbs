@@ -1,0 +1,79 @@
+{{!-- 
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Category</th>
+      <th colspan="2">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+        {{#each list}}
+            <tr>
+                <th >{{inc @index}}</th>
+                <td>{{c_name}}</td>  
+                <td><a href="/category/edit/{{id}}">Edit</a></td>
+                <td><a href="/category/delete/{{id}}">Delete</a></td>
+            </tr>
+       {{/each}}
+  </tbody>
+      
+</table> --}}
+
+
+
+{{#if messages.error}}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{messages.error}}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{{/if}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">S.N</th>
+            <th scope="col">Category Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+{{#each list}}
+          <tr>
+            <th scope="row">{{inc @index}}</th>
+            <td>{{c_name}}</td>
+            <td>
+             <button type="button" class="btn btn-success" onclick="window.location.href='/admin/category/edit/{{id}}'"><i class="fas fa-edit"></i></button>
+            <button type="button" class="btn btn-danger" onclick="window.location.href='/admin/category/delete/{{id}}'"><i class="far fa-trash-alt"></i></button>
+            </td>
+          </tr>
+ {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<style>
+  .container {
+  padding: 2rem 0rem;
+}
+
+h4 {
+  margin: 2rem 0rem 1rem;
+}
+
+.table-image {
+  td, th {
+    vertical-align: middle;
+  }
+}
+
+</style>

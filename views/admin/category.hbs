@@ -1,0 +1,26 @@
+
+{{#if messages.error}}
+        {{#each messages.error}}
+            <div class="auto-close alert alert-danger">
+                <p>{{category_name.msg}}</p>
+            </div>
+        {{/each}}
+{{/if}}
+
+{{#if isEdit}}
+    <form action="/admin/category/update/{{list.id}}"  method="post">
+{{else}}
+    <form action="/admin/category"  method="post">
+{{/if}}
+
+    <input type="text" name="category_name" value='{{list.c_name}}'>
+
+{{#if isEdit}}
+   <button>UPDATE</button>
+{{else}}
+   <button>ADD</button>
+{{/if}}
+ 
+</form>
+
+  

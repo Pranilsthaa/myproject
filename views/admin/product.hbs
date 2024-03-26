@@ -1,0 +1,105 @@
+{{#if messages.success}}
+    <div class="auto-close alert alert-success">
+        {{messages.success}}
+    </div>
+{{/if}}
+            
+
+
+
+{{#if messages.error}}
+            
+    {{#each messages.error}}
+        {{#if product_name}}
+            <div class="auto-close alert alert-danger">
+                <p>{{product_name.msg}}</p>
+            </div>
+        {{/if}}
+        {{#if product_des}}
+            <div class="auto-close alert alert-danger">
+                <p>{{product_des.msg}}</p>
+            </div>
+        {{/if}}
+        {{#if product_price}}
+            <div class="auto-close alert alert-danger">
+                <p>{{product_price.msg}}</p>
+            </div>
+        {{/if}}
+        {{#if image}}
+            <div class="auto-close alert alert-danger">
+                <p>{{image.msg}}</p>
+            </div>
+        {{/if}}
+    {{/each}}
+            <div class="auto-close alert alert-danger">
+                <p>{{ messages.error}}</p>
+            </div>
+{{/if}}
+
+
+
+
+{{#if isEdit}}
+    <form action="/admin/product/update/{{data.id}}"  method="post" enctype="multipart/form-data" >
+{{else}}
+   <form action="/admin/product/"  method="post" enctype="multipart/form-data">
+{{/if}}
+
+
+
+     <input type="text" name="product_name" placeholder="Product Name" value='{{data.product_name}}'>
+     <input type="text" name="product_des" placeholder="Description" value='{{data.des}}'>
+     <input type="text" name="product_price" placeholder="Price" value='{{data.Price}}'>
+     <div class="input-group">
+         <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="image"> 
+     </div>
+
+        <select class="form-control" name="category_id">
+        <option hidden>Select Category</option>
+
+            {{#each category}}
+            <option value="{{this.id}}" {{#ifElse ../data.Category_ID this.id}} selected {{/ifElse}}>{{this.c_name}}</option>
+            {{/each}}
+            
+        </select>
+     <button class="form-btn"> {{#if isEdit}}UPDATE{{else}}ADD{{/if}} </button>
+
+</form>
+
+  
+
+
+
+
+
+
+
+
+
+
+  <style>
+
+    .input-group{
+        width: 350px;
+    }
+   form{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+   }
+
+   input{
+    width: 350px;
+    height: 50px;
+   }
+
+   .form-control{
+    width: 350px;
+    height: 40px;
+   }
+
+   .form-btn{
+    width: 350px;
+    height: 50px;
+   }
+  </style>
